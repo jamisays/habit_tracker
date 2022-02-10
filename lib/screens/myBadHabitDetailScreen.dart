@@ -38,21 +38,39 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
 
   Map<DateTime, int> heatMap = {};
 
+  int findNextDayIndex(int x, BadHabit habit) {
+    if (x == habit.relapsedDaysList.length - 1) return x;
+    if (x < habit.relapsedDaysList.length) {
+      while (
+          habit.relapsedDaysList[x].day == habit.relapsedDaysList[x + 1].day) {
+        x++;
+        if (x == habit.relapsedDaysList.length - 1) return x;
+      }
+    }
+
+    return ++x;
+  }
+
   void setHeatMap(BadHabit habit) {
     var length = DateTime.now().difference(habit.createDate).inDays;
 
     int j = 0;
-    for (int i = 0; i <= length; i++) {
+    var jLength = habit.relapsedDaysList.length;
+    for (int i = 0; i <= length + 1; i++) {
       var date = habit.createDate.add(Duration(days: i));
+      bool perfectDay = true;
 
       date = TimeUtils.removeTime(date);
       if (habit.relapsedDaysList.isNotEmpty) {
-        if (TimeUtils.removeTime(habit.relapsedDaysList[j]) == date) {
-          heatMap[date] = 5;
-          j++;
+        if (j < jLength) {
+          if (TimeUtils.removeTime(habit.relapsedDaysList[j]) == date) {
+            heatMap[date] = 1;
+            perfectDay = false;
+            j = findNextDayIndex(j, habit);
+          }
         }
-      } else
-        heatMap[date] = 30;
+      }
+      if (perfectDay) heatMap[date] = 30;
     }
   }
 
@@ -195,7 +213,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: CircularPercentIndicator(
                             radius: size.height * .16,
-                            percent: hour! / 60,
+                            percent: hour! / 24,
                             progressColor: Colors.green,
                             backgroundColor: Colors.blueGrey.shade100,
                             center: Column(
@@ -264,7 +282,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
               height: size.height * .4,
               width: size.width * .95,
               child: HeatMapCalendar(input: heatMap, colorThresholds: {
-                1: Colors.green[100]!,
+                1: Colors.red[500]!,
                 10: Colors.green[300]!,
                 30: Colors.green[500]!,
               }),

@@ -40,7 +40,30 @@ class Habits with ChangeNotifier {
     //   timesDay: 5,
     // )
   ];
-  List<BadHabit> _badHabits = [];
+  List<BadHabit> _badHabits = [
+    BadHabit(
+      id: DateTime.utc(2020, 1, 1, 0, 0, 1).toString(),
+      title: 'Test 1',
+      createDate: DateTime.utc(2021, 11, 5, 0, 0, 1),
+      isActive: true,
+      timesType: 'Daily',
+      timesDay: 1,
+      relapsedDaysList: [
+        DateTime.utc(2021, 11, 10, 0, 0, 1),
+        DateTime.utc(2021, 11, 15, 0, 0, 1),
+        DateTime.utc(2021, 11, 17, 0, 0, 1),
+        DateTime.utc(2021, 11, 17, 0, 0, 1),
+        DateTime.utc(2021, 11, 17, 0, 0, 1),
+        DateTime.utc(2021, 11, 25, 0, 0, 1),
+        DateTime.utc(2021, 11, 27, 0, 0, 1),
+        DateTime.utc(2021, 12, 4, 0, 0, 1),
+        DateTime.utc(2021, 12, 14, 0, 0, 1),
+        DateTime.utc(2021, 12, 25, 0, 0, 1),
+      ],
+      relapsedReasons: {},
+      lastDate: DateTime.utc(2021, 12, 25, 0, 0, 1),
+    )
+  ];
 
   // auth
 
@@ -69,6 +92,7 @@ class Habits with ChangeNotifier {
 
     print(box.values.length);
     print(goodHabits.length);
+    box.close();
     // notifyListeners();
   }
 
@@ -117,7 +141,10 @@ class Habits with ChangeNotifier {
 
       // Hive
 
-      Hive.openBox('good_habits').then((value) => value.put(newHt.id, newHt));
+      Hive.openBox('good_habits').then((value) {
+        value.put(newHt.id, newHt);
+        value.close();
+      });
       goodHabits.add(newHt);
 
       addGoodToEvent(newHt);
@@ -165,6 +192,7 @@ class Habits with ChangeNotifier {
       }
       addGoodToEvent(goodHabit);
       value.put(id, goodHabit);
+      value.close();
     });
 
     Hive.openBox<EventSource>('event_source').then((value) {
@@ -212,22 +240,38 @@ class Habits with ChangeNotifier {
 
   // ------ BAD HABITS ------
 
+  // Future<void> fetchAndSetBadHabits() async {
+  //   final box = await Hive.openBox<BadHabit>('bad_habits').then((value) {
+  //     if (_badHabits.isEmpty) {
+  //       for (var item in value.values) {
+  //         _badHabits.add(item);
+  //         print(item.toString());
+  //       }
+  //     }
+  //   }).catchError((error, _) => null);
+
+  //   print(box.values.length);
+  //   print(_badHabits.length);
+
+  //   box.close();
+
+  //   notifyListeners();
+  // }
+
   Future<void> fetchAndSetBadHabits() async {
-    final box = await Hive.openBox<BadHabit>('bad_habits').then((value) {
-      if (value.isNotEmpty) {
-        if (_badHabits.isEmpty) {
-          for (var item in value.values) {
-            _badHabits.add(item);
-            print(item.toString());
-          }
-        }
+    final box = await Hive.openBox<BadHabit>('bad_habits');
+
+    // box.values.map((e) => goodHabits.add(e));
+
+    if (_badHabits.isEmpty) {
+      for (var item in box.values) {
+        _badHabits.add(item);
       }
-    }).catchError((error, _) => null);
+    }
 
     print(box.values.length);
     print(_badHabits.length);
-
-    // notifyListeners();
+    box.close();
   }
 
   void _addNewBadHabit(
@@ -264,6 +308,7 @@ class Habits with ChangeNotifier {
 
     Hive.openBox<BadHabit>('bad_habits').then((value) {
       value.put(newHt.id, newHt);
+      value.close();
     });
 
     // Hive.box('bad_habits').put(newHt.id, newHt);
@@ -293,8 +338,11 @@ class Habits with ChangeNotifier {
       _badHabits[habitIndex] = badHabit;
     }
 
-    var habit = Hive.box('bad_habits');
-    habit.put(id, badHabit);
+    Hive.openBox('bad_habits').then((value) {
+      value.put(id, badHabit);
+      value.close();
+    });
+
     notifyListeners();
   }
 
@@ -311,7 +359,10 @@ class Habits with ChangeNotifier {
     var index = _badHabits.indexWhere((element) => element.id == id);
     _badHabits[index] = item;
     Hive.openBox<BadHabit>('bad_habits').then(
-      (value) => value.put(id, item),
+      (value) {
+        value.put(id, item);
+        value.close();
+      },
     );
     notifyListeners();
   }
@@ -319,7 +370,11 @@ class Habits with ChangeNotifier {
   void deleteBadHabit(String id) {
     // setState(() {
     _badHabits.removeWhere((ht) => ht.id == id);
-    Hive.box('bad_habits').delete(id);
+    Hive.openBox('bad_habits').then((value) {
+      value.delete(id);
+      value.close();
+    });
+    // Hive.box('bad_habits').delete(id);
     notifyListeners();
     // });
   }
