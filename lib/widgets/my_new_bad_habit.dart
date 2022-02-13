@@ -168,6 +168,7 @@ class _MyNewBadHabitState extends State<MyNewBadHabit> {
                 FormBuilderDropdown(
                   name: 'difficulty_level',
                   items: _difficultyDropdownMenuItems,
+                  initialValue: difficultyMenuItems[0],
                   elevation: 10,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(10),

@@ -83,7 +83,8 @@ class _MyBadHabitItemState extends State<MyBadHabitItem> {
             radius: size.height * .043,
             // fillColor: Colors.amber,
             progressColor: Colors.amber,
-            percent: _todaySeconds / 86400,
+            // have to revert when validation logic is implemented
+            percent: _todaySeconds > 0 ? _todaySeconds / 86400 : 0,
             center: CircleAvatar(
               backgroundColor: Colors.indigo.shade400,
               radius: size.height * .037,

@@ -3,11 +3,11 @@ import 'package:habit_tracker/models/badHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/providers/streams.dart';
 import 'package:habit_tracker/widgets/bad_habits/bad_details_record_card.dart';
-import 'package:habit_tracker/widgets/heatmap_calendar/heatmap_calendar.dart';
 import 'package:habit_tracker/widgets/heatmap_calendar/time_utils.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 
 class MyBadHabitDetailScreen extends StatefulWidget {
   static const routeName = '/my-bad-habit-details';
@@ -47,8 +47,8 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
         if (x == habit.relapsedDaysList.length - 1) return x;
       }
     }
-
-    return ++x;
+    x++;
+    return x;
   }
 
   void setHeatMap(BadHabit habit) {
@@ -56,7 +56,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
 
     int j = 0;
     var jLength = habit.relapsedDaysList.length;
-    for (int i = 0; i <= length + 1; i++) {
+    for (int i = 0; i <= length; i++) {
       var date = habit.createDate.add(Duration(days: i));
       bool perfectDay = true;
 
@@ -70,7 +70,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
           }
         }
       }
-      if (perfectDay) heatMap[date] = 30;
+      if (perfectDay) heatMap[date] = 7;
     }
   }
 
@@ -213,7 +213,8 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: CircularPercentIndicator(
                             radius: size.height * .16,
-                            percent: hour! / 24,
+                            percent:
+                                (int.parse(minute!) + (hour! * 60)) / (24 * 60),
                             progressColor: Colors.green,
                             backgroundColor: Colors.blueGrey.shade100,
                             center: Column(
@@ -262,7 +263,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
               },
             ),
             Container(
-              height: size.height * .4,
+              height: size.height * .3,
               width: size.width * .95,
               child: GridView(
                 children: [
@@ -279,20 +280,39 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
               ),
             ),
             Container(
-              height: size.height * .4,
+              height: size.height * .7,
               width: size.width * .95,
-              child: HeatMapCalendar(input: heatMap, colorThresholds: {
-                1: Colors.red[500]!,
-                10: Colors.green[300]!,
-                30: Colors.green[500]!,
-              }),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(size.width * .04),
+                    child: Text(
+                      'Heatmap Calendar',
+                      style: TextStyle(fontSize: size.width * .05),
+                    ),
+                  ),
+                  HeatMapCalendar(
+                    datasets: heatMap,
+                    colorMode: ColorMode.color,
+                    size: size.width * .1,
+                    borderRadius: size.height * .003,
+                    defaultColor: Colors.lime.shade200,
+                    showColorTip: false,
+                    colorsets: {
+                      1: Colors.red,
+                      7: Colors.green,
+                    },
+                  )
+                ],
+              ),
             ),
             Container(
               child: ElevatedButton(
                 child: Text('Reset'),
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.red.shade300),
+                      MaterialStateProperty.all<Color>(Colors.red.shade400),
                 ),
                 onPressed: () {
                   var badRelapseTime = DateTime.now();

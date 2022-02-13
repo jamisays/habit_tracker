@@ -41,28 +41,28 @@ class Habits with ChangeNotifier {
     // )
   ];
   List<BadHabit> _badHabits = [
-    BadHabit(
-      id: DateTime.utc(2020, 1, 1, 0, 0, 1).toString(),
-      title: 'Test 1',
-      createDate: DateTime.utc(2021, 11, 5, 0, 0, 1),
-      isActive: true,
-      timesType: 'Daily',
-      timesDay: 1,
-      relapsedDaysList: [
-        DateTime.utc(2021, 11, 10, 0, 0, 1),
-        DateTime.utc(2021, 11, 15, 0, 0, 1),
-        DateTime.utc(2021, 11, 17, 0, 0, 1),
-        DateTime.utc(2021, 11, 17, 0, 0, 1),
-        DateTime.utc(2021, 11, 17, 0, 0, 1),
-        DateTime.utc(2021, 11, 25, 0, 0, 1),
-        DateTime.utc(2021, 11, 27, 0, 0, 1),
-        DateTime.utc(2021, 12, 4, 0, 0, 1),
-        DateTime.utc(2021, 12, 14, 0, 0, 1),
-        DateTime.utc(2021, 12, 25, 0, 0, 1),
-      ],
-      relapsedReasons: {},
-      lastDate: DateTime.utc(2021, 12, 25, 0, 0, 1),
-    )
+    // BadHabit(
+    //   id: DateTime.utc(2020, 1, 1, 0, 0, 1).toString(),
+    //   title: 'Test 1',
+    //   createDate: DateTime.utc(2021, 11, 5, 0, 0, 1),
+    //   isActive: true,
+    //   timesType: 'Daily',
+    //   timesDay: 1,
+    //   relapsedDaysList: [
+    //     DateTime.utc(2021, 11, 10, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 15, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 17, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 17, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 17, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 25, 0, 0, 1),
+    //     DateTime.utc(2021, 11, 27, 0, 0, 1),
+    //     DateTime.utc(2021, 12, 4, 0, 0, 1),
+    //     DateTime.utc(2021, 12, 14, 0, 0, 1),
+    //     DateTime.utc(2021, 12, 25, 0, 0, 1),
+    //   ],
+    //   relapsedReasons: {},
+    //   lastDate: DateTime.utc(2021, 12, 25, 0, 0, 1),
+    // )
   ];
 
   // auth
