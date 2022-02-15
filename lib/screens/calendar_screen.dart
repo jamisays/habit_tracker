@@ -3,7 +3,6 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:habit_tracker/models/eventSource.dart';
-import 'package:habit_tracker/screens/countdown_screen.dart';
 // import 'package:habit_tracker/models/goodHabit.dart';
 import 'package:habit_tracker/widgets/calendar_header.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -93,7 +92,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
 
   @override
   void dispose() {
-    Hive.close();
+    // Hive.close();
     _focusedDay.dispose();
     _selectedEvents!.dispose();
     super.dispose();
@@ -165,7 +164,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       }).isDone = true;
                     }
                     // incremental done -- end
-                    var box = Hive.box('event_source');
+                    var box = Hive.box<EventSource>('event_source');
                     setState(() {
                       eventIsDone(_focusedDay.value, title, value);
                     });
@@ -273,7 +272,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
         child: Icon(Icons.add_business_sharp),
         onPressed: () {
           // Navigator.of(context).pushNamed(CountDownScreen.routeName);
-          clearDB();
+          // clearDB();
         },
       ),
       body: Column(

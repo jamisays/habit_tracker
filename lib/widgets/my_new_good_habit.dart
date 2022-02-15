@@ -191,7 +191,7 @@ class _MyNewGoodHabitState extends State<MyNewGoodHabit> {
 
   String value = 'fix';
 
-  String selectedScheduleType = 'fle';
+  String selectedScheduleType = 'fix';
 
   List<S2Choice<String>> scheduleItems = [
     S2Choice<String>(value: 'fix', title: 'Fixed'),
@@ -420,7 +420,7 @@ class _MyNewGoodHabitState extends State<MyNewGoodHabit> {
                 FormBuilderDropdown(
                   name: 'scheduleType',
                   items: scheduleDropdownItems2,
-                  initialValue: scheduleItems2[1],
+                  initialValue: scheduleItems2[0],
                   onChanged: (value) {
                     setState(() {
                       selectedScheduleType =
@@ -450,6 +450,7 @@ class _MyNewGoodHabitState extends State<MyNewGoodHabit> {
                   name: 'difficulty_level',
                   items: _difficultyDropdownMenuItems,
                   dropdownColor: Colors.lightBlue[100],
+                  initialValue: difficultyMenuItems[0],
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(10),
                     hintText: "Choose Difficulty",

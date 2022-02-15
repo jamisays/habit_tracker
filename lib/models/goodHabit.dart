@@ -23,7 +23,7 @@ class GoodHabit {
   @HiveField(2)
   String title;
   @HiveField(3)
-  late DateTime? startDate;
+  late DateTime startDate;
   @HiveField(4)
   final List<String>? cues;
   @HiveField(5)

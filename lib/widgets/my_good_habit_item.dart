@@ -52,7 +52,7 @@ class _MyGoodHabitItemState extends State<MyGoodHabitItem> {
             style: Theme.of(context).textTheme.headline6,
           ),
           subtitle: Text(
-            DateFormat.yMMMd().format(widget.goodHabit.startDate!),
+            DateFormat.yMMMd().format(widget.goodHabit.startDate),
             // habits[index].difficultyLevel,
             // ),
           ),

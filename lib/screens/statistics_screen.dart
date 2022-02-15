@@ -59,6 +59,8 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
             isInversed: true,
           ),
           primaryYAxis: CategoryAxis(
+            minimum: 0,
+            maximum: 100,
             interval: 25,
           ),
         ),

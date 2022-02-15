@@ -3,7 +3,6 @@ import 'package:habit_tracker/models/badHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/providers/streams.dart';
 import 'package:habit_tracker/widgets/bad_habits/bad_details_record_card.dart';
-import 'package:habit_tracker/widgets/heatmap_calendar/time_utils.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
@@ -26,6 +25,10 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
   String? second;
   int? hour;
   int? day;
+
+  DateTime removeTime(DateTime dateTime) {
+    return DateTime(dateTime.year, dateTime.month, dateTime.day);
+  }
 
   void setTime(String stream) {
     var list = stream.split(":");
@@ -60,10 +63,10 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
       var date = habit.createDate.add(Duration(days: i));
       bool perfectDay = true;
 
-      date = TimeUtils.removeTime(date);
+      date = removeTime(date);
       if (habit.relapsedDaysList.isNotEmpty) {
         if (j < jLength) {
-          if (TimeUtils.removeTime(habit.relapsedDaysList[j]) == date) {
+          if (removeTime(habit.relapsedDaysList[j]) == date) {
             heatMap[date] = 1;
             perfectDay = false;
             j = findNextDayIndex(j, habit);

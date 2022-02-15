@@ -20,7 +20,7 @@ class GoodHabitAdapter extends TypeAdapter<GoodHabit> {
       id: fields[0] as String,
       category: fields[1] as String?,
       title: fields[2] as String,
-      startDate: fields[3] as DateTime?,
+      startDate: fields[3] as DateTime,
       cues: (fields[4] as List?)?.cast<String>(),
       duration: fields[5] as int?,
       difficultyLevel: fields[6] as String?,

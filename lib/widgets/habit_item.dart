@@ -53,7 +53,7 @@ class _HabitItemState extends State<HabitItem> {
           style: Theme.of(context).textTheme.headline6,
         ),
         subtitle: Text(
-          DateFormat.yMMMd().format(widget.habit.startDate!),
+          DateFormat.yMMMd().format(widget.habit.startDate),
           // habits[index].difficultyLevel,
           // ),
         ),

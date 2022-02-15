@@ -29,7 +29,7 @@ void openEventBox() async {
 }
 
 void saveEventToHive() {
-  var box = Hive.box('event_source');
+  var box = Hive.box<EventSource>('event_source');
   var x = EventSource(kEvents);
   box.putAt(0, x);
 }
@@ -72,10 +72,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.saturday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -83,7 +83,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -97,10 +97,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.sunday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -108,7 +108,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -121,10 +121,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.monday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -132,7 +132,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -145,10 +145,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.tuesday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -156,7 +156,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -169,10 +169,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.wednesday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -180,7 +180,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -193,10 +193,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.thursday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -204,7 +204,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -217,10 +217,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
           if (firstTime) {
             var x = newHt.startDate;
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.friday &&
-                  j.day >= newHt.startDate!.day) {
+                  j.day >= newHt.startDate.day) {
                 y = j.day;
                 firstTime = false;
                 break;
@@ -228,7 +228,7 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
             }
           }
           var key = DateTime.utc(
-              newHt.startDate!.year, newHt.startDate!.month, y + (i * 7));
+              newHt.startDate.year, newHt.startDate.month, y + (i * 7));
           kEvents.containsKey(key)
               ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
               : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -240,10 +240,10 @@ void addFixedDayToEvents(String day, int weeks, GoodHabit newHt) {
 
 void addRepDaysToEvents(GoodHabit newHt) {
   var repDays = newHt.repDays;
-  for (var y = newHt.startDate!.day;
-      y != newHt.startDate!.day + 180;
+  for (var y = newHt.startDate.day;
+      y != newHt.startDate.day + 180;
       y += repDays! + 1) {
-    var key = DateTime.utc(newHt.startDate!.year, newHt.startDate!.month, y);
+    var key = DateTime.utc(newHt.startDate.year, newHt.startDate.month, y);
     kEvents.containsKey(key)
         ? kEvents[key]!.add(Event(newHt.title, newHt.timesDay!))
         : kEvents[key] = [Event(newHt.title, newHt.timesDay!)];
@@ -264,7 +264,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.saturday && j.day >= x.day) {
                 y = j.day;
@@ -273,7 +273,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
               }
             }
           }
-          var key = DateTime.utc(x!.year, x.month, y + (i * 7));
+          var key = DateTime.utc(x.year, x.month, y + (i * 7));
           if (kEvents.containsKey(key))
             kEvents[key]!
                 .removeWhere((element) => element.title == oldHt.title);
@@ -287,7 +287,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.sunday && j.day >= x.day) {
                 y = j.day;
@@ -309,7 +309,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.monday && j.day >= x.day) {
                 y = j.day;
@@ -331,7 +331,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.tuesday && j.day >= x.day) {
                 y = j.day;
@@ -353,7 +353,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.wednesday && j.day >= x.day) {
                 y = j.day;
@@ -375,7 +375,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.thursday && j.day >= x.day) {
                 y = j.day;
@@ -397,7 +397,7 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
           var x = oldHt.startDate;
           if (firstTime) {
             for (var j = x;
-                j!.month != x!.month + 1;
+                j.month != x.month + 1;
                 j = j.add(Duration(days: 1))) {
               if (j.weekday == DateTime.friday && j.day >= x.day) {
                 y = j.day;
@@ -420,10 +420,10 @@ void removeFixedDayFromEvents(String day, int weeks, GoodHabit oldHt) {
 
 void removeRepDaysFromEvents(GoodHabit old) {
   var repDays = old.repDays;
-  for (var y = old.startDate!.day;
-      y != old.startDate!.day + 180;
+  for (var y = old.startDate.day;
+      y != old.startDate.day + 180;
       y += repDays! + 1) {
-    var key = DateTime.utc(old.startDate!.year, old.startDate!.month, y);
+    var key = DateTime.utc(old.startDate.year, old.startDate.month, y);
     if (kEvents.containsKey(key))
       kEvents[key]!.removeWhere((element) => element.title == old.title);
   }
