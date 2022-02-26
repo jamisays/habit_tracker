@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/goodHabit.dart';
-import 'package:habit_tracker/screens/myGoodHabitDetailScreen.dart';
+import 'package:habit_tracker/models/good_habits/goodHabit.dart';
+import 'package:habit_tracker/screens/good_habits/myGoodHabitDetailScreen.dart';
 import 'package:intl/intl.dart';
 
 class MyGoodHabitItem extends StatefulWidget {

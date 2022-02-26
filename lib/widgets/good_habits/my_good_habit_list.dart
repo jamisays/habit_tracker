@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:habit_tracker/models/eventSource.dart';
+import 'package:habit_tracker/models/events/eventSource.dart';
 // import 'package:habit_tracker/models/goodHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 import 'package:hive/hive.dart';

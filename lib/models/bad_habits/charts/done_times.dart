@@ -1,5 +1,5 @@
-import 'package:habit_tracker/models/eventSource.dart';
-import 'package:habit_tracker/models/goodHabit.dart';
+import 'package:habit_tracker/models/events/eventSource.dart';
+import 'package:habit_tracker/models/good_habits/goodHabit.dart';
 import 'package:habit_tracker/utils.dart';
 import 'package:hive/hive.dart';
 

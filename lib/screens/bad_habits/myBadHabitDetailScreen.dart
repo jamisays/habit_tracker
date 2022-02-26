@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/badHabit.dart';
+import 'package:habit_tracker/models/bad_habits/badHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/providers/streams.dart';
 import 'package:habit_tracker/widgets/bad_habits/bad_details_record_card.dart';

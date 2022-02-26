@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/badHabit.dart';
+import 'package:habit_tracker/models/bad_habits/badHabit.dart';
 import 'package:habit_tracker/providers/streams.dart';
-import 'package:habit_tracker/screens/myBadHabitDetailScreen.dart';
+import 'package:habit_tracker/screens/bad_habits/myBadHabitDetailScreen.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';

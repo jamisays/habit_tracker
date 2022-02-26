@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/category_habits_screen.dart';
+import '../screens/add_habits/category_habits_screen.dart';
 
 class CategoryItem extends StatelessWidget {
   final String id;

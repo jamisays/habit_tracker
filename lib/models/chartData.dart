@@ -1,4 +1,4 @@
-import 'package:habit_tracker/models/eventSource.dart';
+import 'package:habit_tracker/models/events/eventSource.dart';
 import 'package:hive/hive.dart';
 
 import '../utils.dart';

@@ -1,13 +1,13 @@
 import 'dart:collection';
 
-import 'package:habit_tracker/models/goodHabit.dart';
+import 'package:habit_tracker/models/good_habits/goodHabit.dart';
 
 import 'package:hive/hive.dart';
 
 import 'package:table_calendar/table_calendar.dart';
 
-import 'models/event.dart';
-import 'models/eventSource.dart';
+import 'models/events/event.dart';
+import 'models/events/eventSource.dart';
 
 /// Example event class.
 

@@ -2,16 +2,16 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:habit_tracker/models/eventSource.dart';
+import 'package:habit_tracker/models/events/eventSource.dart';
 // import 'package:habit_tracker/models/goodHabit.dart';
-import 'package:habit_tracker/widgets/calendar_header.dart';
+import 'package:habit_tracker/widgets/calendar_screen/calendar_header.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:hive/hive.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-import '../utils.dart';
-import '../models/event.dart';
-import '../widgets/volume_alert.dart';
+import '../../utils.dart';
+import '../../models/events/event.dart';
+import '../../widgets/calendar_screen/volume_alert.dart';
 
 class CalendarScreen extends StatefulWidget {
   @override

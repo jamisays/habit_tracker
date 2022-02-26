@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/dummy_data.dart';
 import 'package:habit_tracker/models/category.dart';
 import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/widgets/category_item.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
-import '../widgets/category_item.dart';
-
-import '../dummy_data.dart';
 
 // ignore: must_be_immutable
 class CategoriesScreen extends StatelessWidget {

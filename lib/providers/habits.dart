@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/eventSource.dart';
+import 'package:habit_tracker/models/events/eventSource.dart';
 import 'package:habit_tracker/utils.dart';
 // import 'package:http/http.dart' as http;
 import 'package:hive/hive.dart';
 
-import 'package:habit_tracker/models/badHabit.dart';
-import 'package:habit_tracker/widgets/my_new_good_habit.dart' as gh;
-import 'package:habit_tracker/widgets/my_new_bad_habit.dart';
-import '../models/goodHabit.dart';
+import 'package:habit_tracker/models/bad_habits/badHabit.dart';
+import 'package:habit_tracker/widgets/good_habits/my_new_good_habit.dart' as gh;
+import 'package:habit_tracker/widgets/bad_habits/my_new_bad_habit.dart';
+import '../models/good_habits/goodHabit.dart';
 
 class Habits with ChangeNotifier {
   List<GoodHabit> goodHabits = [

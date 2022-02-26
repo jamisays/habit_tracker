@@ -8,19 +8,19 @@ import 'package:path_provider/path_provider.dart' as pp;
 
 import 'package:habit_tracker/providers/auth.dart';
 import 'package:habit_tracker/providers/habits.dart';
-import 'package:habit_tracker/screens/categories_screen.dart';
-import 'package:habit_tracker/screens/edit_good_habit_screen.dart';
-import 'package:habit_tracker/screens/edit_bad_habit_screen.dart';
+import 'package:habit_tracker/screens/add_habits/categories_screen.dart';
+import 'package:habit_tracker/screens/good_habits/edit_good_habit_screen.dart';
+import 'package:habit_tracker/screens/bad_habits/edit_bad_habit_screen.dart';
 import 'package:habit_tracker/screens/filters_screen.dart';
 import 'package:habit_tracker/screens/tabs_screen.dart';
-import 'models/badHabit.dart';
-import 'models/event.dart';
-import 'models/eventSource.dart';
-import 'models/goodHabit.dart';
-import 'screens/menu_habit_details_screen.dart';
-import './screens/category_habits_screen.dart';
-import 'screens/myBadHabitDetailScreen.dart';
-import 'screens/myGoodHabitDetailScreen.dart';
+import 'models/bad_habits/badHabit.dart';
+import 'models/events/event.dart';
+import 'models/events/eventSource.dart';
+import 'models/good_habits/goodHabit.dart';
+import 'screens/add_habits/menu_habit_details_screen.dart';
+import './screens/add_habits/category_habits_screen.dart';
+import 'screens/bad_habits/myBadHabitDetailScreen.dart';
+import 'screens/good_habits/myGoodHabitDetailScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,13 +89,18 @@ class MyApp extends StatelessWidget {
                   button: TextStyle(color: Colors.white),
                 ),
             appBarTheme: AppBarTheme(
-              textTheme: ThemeData.light().textTheme.copyWith(
-                    headline6: TextStyle(
-                      fontFamily: 'OpenSans',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+              titleTextStyle: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              // textTheme: ThemeData.light().textTheme.copyWith(
+              //       headline6: TextStyle(
+              //         fontFamily: 'OpenSans',
+              //         fontSize: 20,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     ),
             ),
           ),
           // home: auth.isAuthenticated

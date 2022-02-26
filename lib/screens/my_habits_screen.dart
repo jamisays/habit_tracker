@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:habit_tracker/providers/habits.dart';
-import 'package:habit_tracker/widgets/my_bad_habit_list.dart';
-import 'package:habit_tracker/widgets/my_good_habit_list.dart';
+import 'package:habit_tracker/widgets/bad_habits/my_bad_habit_list.dart';
+import 'package:habit_tracker/widgets/good_habits/my_good_habit_list.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 

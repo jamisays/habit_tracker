@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/badHabit.dart';
+import 'package:habit_tracker/models/bad_habits/badHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/screens/bad_habits/relapse_item.dart';
 import 'package:provider/provider.dart';

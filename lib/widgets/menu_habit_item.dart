@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/menu_habit_details_screen.dart';
+import '../screens/add_habits/menu_habit_details_screen.dart';
 
 class MenuHabitItem extends StatelessWidget {
   final String id;

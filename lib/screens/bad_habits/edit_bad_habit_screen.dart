@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:habit_tracker/models/badHabit.dart';
+import 'package:habit_tracker/models/bad_habits/badHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';
@@ -114,13 +114,15 @@ class _EditBadHabitScreenState extends State<EditBadHabitScreen> {
         _formKeyEditBad.currentState!.fields['difficulty_level']!.value;
     final enteredStartDate =
         _formKeyEditBad.currentState!.fields['start_date']!.value as DateTime;
-    // for updating last relapsed date
 
+    // if startdate is changed
     if (enteredStartDate != previousHabit.createDate) {
-      previousHabit.relapsedDaysList.last = enteredStartDate;
-      var temp = previousHabit.relapsedReasons[previousHabit.createDate];
-      previousHabit.relapsedReasons.remove(previousHabit.createDate);
-      previousHabit.relapsedReasons[enteredStartDate] = temp!;
+      previousHabit.relapsedDaysList = [];
+      previousHabit.relapsedReasons = {};
+      // previousHabit.relapsedDaysList.last = enteredStartDate;
+      // var temp = previousHabit.relapsedReasons[previousHabit.createDate];
+      // previousHabit.relapsedReasons.remove(previousHabit.createDate);
+      // previousHabit.relapsedReasons[enteredStartDate] = temp!;
     }
 
     // final enteredReason = _reasonController.text;

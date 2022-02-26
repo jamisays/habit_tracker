@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/providers/habits.dart';
-import 'package:habit_tracker/screens/type_item_screen.dart';
+import 'package:habit_tracker/screens/add_habits/type_item_screen.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 

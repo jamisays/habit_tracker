@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/screens/categories_screen.dart';
-import '../screens/category_habits_screen.dart';
+import 'package:habit_tracker/screens/add_habits/categories_screen.dart';
+import 'package:habit_tracker/screens/add_habits/category_habits_screen.dart';
 
 class TypeItemScreen extends StatelessWidget {
   final String id;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habit_tracker/models/goodHabit.dart';
+import 'package:habit_tracker/dummy_data.dart';
+import 'package:habit_tracker/models/good_habits/goodHabit.dart';
 import 'package:habit_tracker/widgets/menu_habit_item.dart';
-import '../dummy_data.dart';
 
 class CategoryHabitsScreen extends StatefulWidget {
   static const routeName = '/category-habits';

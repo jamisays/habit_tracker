@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../models/goodHabit.dart';
+import '../models/good_habits/goodHabit.dart';
 
 class HabitItem extends StatefulWidget {
   const HabitItem({

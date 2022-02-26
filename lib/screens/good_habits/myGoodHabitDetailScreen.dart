@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/models/bad_habits/charts/done_times.dart';
 import 'package:habit_tracker/providers/habits.dart';
-import 'package:habit_tracker/screens/edit_good_habit_screen.dart';
+import 'package:habit_tracker/screens/good_habits/edit_good_habit_screen.dart';
 import 'package:habit_tracker/widgets/good_habits/success_rate_chart.dart';
 import 'package:intl/intl.dart';
 // ignore: import_of_legacy_library_into_null_safe

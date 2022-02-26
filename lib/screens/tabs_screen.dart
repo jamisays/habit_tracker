@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/screens/statistics_screen.dart';
-import 'package:habit_tracker/screens/type_screen.dart';
+import 'package:habit_tracker/screens/add_habits/type_screen.dart';
 import 'package:habit_tracker/widgets/main_drawer.dart';
-import 'calendar_screen.dart';
+import 'calendar_screen/calendar_screen.dart';
 import 'my_habits_screen.dart';
 
 class TabsScreen extends StatefulWidget {

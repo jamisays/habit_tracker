@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:habit_tracker/models/goodHabit.dart';
+import 'package:habit_tracker/models/good_habits/goodHabit.dart';
 import 'package:habit_tracker/providers/habits.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'models/goodHabit.dart';
+import 'models/good_habits/goodHabit.dart';
 import './models/category.dart';
 
 var dummyCategories = [
