@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/models/bad_habits/charts/done_times.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 import 'package:habit_tracker/screens/good_habits/edit_good_habit_screen.dart';
 import 'package:habit_tracker/widgets/good_habits/success_rate_chart.dart';
 import 'package:intl/intl.dart';
@@ -37,7 +37,7 @@ class _MyGoodHabitDetailScreenState extends State<MyGoodHabitDetailScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final habitId = ModalRoute.of(context)!.settings.arguments as String;
-    final habitsData = Provider.of<Habits>(context).goodItems;
+    final habitsData = Provider.of<GoodHabits>(context).goodItems;
     final selectedHabit = habitsData.firstWhere(
       (habit) => habit.id == habitId,
     );

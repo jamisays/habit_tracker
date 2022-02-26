@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:habit_tracker/providers/bad_habits.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 import 'package:habit_tracker/providers/streams.dart';
 import 'package:habit_tracker/screens/bad_habits/relapse_history.dart';
 import 'package:habit_tracker/screens/countdown_screen.dart';
@@ -7,7 +9,6 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pp;
 
 import 'package:habit_tracker/providers/auth.dart';
-import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/screens/add_habits/categories_screen.dart';
 import 'package:habit_tracker/screens/good_habits/edit_good_habit_screen.dart';
 import 'package:habit_tracker/screens/bad_habits/edit_bad_habit_screen.dart';
@@ -53,10 +54,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(
           value: Auth(),
         ),
-        ChangeNotifierProxyProvider<Auth, Habits>(
-          create: (ctx) => Habits(),
-          update: (ctx, auth, prevHabits) => Habits()
+        ChangeNotifierProxyProvider<Auth, GoodHabits>(
+          create: (ctx) => GoodHabits(),
+          update: (ctx, auth, prevHabits) => GoodHabits()
             ..updateTokenAndGoodHabit(auth.token, prevHabits!.goodHabits),
+        ),
+        ChangeNotifierProvider.value(
+          value: BadHabits(),
         ),
         ChangeNotifierProvider.value(
           value: Streams(),

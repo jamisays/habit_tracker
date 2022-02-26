@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:habit_tracker/providers/bad_habits.dart';
 // import 'package:habit_tracker/models/badHabit.dart';
-import 'package:habit_tracker/providers/habits.dart';
 import 'package:habit_tracker/widgets/bad_habits/my_bad_habit_item.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
@@ -15,14 +15,14 @@ class MyBadHabitList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future:
-            Provider.of<Habits>(context, listen: false).fetchAndSetBadHabits(),
+        future: Provider.of<BadHabits>(context, listen: false)
+            .fetchAndSetBadHabits(),
         builder: (ctx, snapshot) => snapshot.connectionState ==
                 ConnectionState.waiting
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : Consumer<Habits>(
+            : Consumer<BadHabits>(
                 child: Center(
                   child: const Text('No habits yet added'),
                 ),

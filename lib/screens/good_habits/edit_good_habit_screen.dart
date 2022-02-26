@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:habit_tracker/models/good_habits/goodHabit.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -40,7 +40,7 @@ class _EditGoodHabitScreenState extends State<EditGoodHabitScreen> {
   void didChangeDependencies() {
     if (_isInit) {
       final habitId = ModalRoute.of(context)!.settings.arguments as String;
-      var _editedHabitPrev = Provider.of<Habits>(context, listen: false)
+      var _editedHabitPrev = Provider.of<GoodHabits>(context, listen: false)
           .goodItems
           .firstWhere((habit) => habit.id == habitId);
 
@@ -374,7 +374,7 @@ class _EditGoodHabitScreenState extends State<EditGoodHabitScreen> {
       duration: calculatedDuration,
     );
 
-    Provider.of<Habits>(context, listen: false)
+    Provider.of<GoodHabits>(context, listen: false)
         .updateGoodHabit(updatedHabit.id, updatedHabit);
     Navigator.of(context).pop();
   }

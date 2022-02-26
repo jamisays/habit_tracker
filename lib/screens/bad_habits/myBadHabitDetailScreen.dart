@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/models/bad_habits/badHabit.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/bad_habits.dart';
 import 'package:habit_tracker/providers/streams.dart';
 import 'package:habit_tracker/widgets/bad_habits/bad_details_record_card.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -118,8 +118,8 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final habitId = ModalRoute.of(context)!.settings.arguments as String;
-    final habits = Provider.of<Habits>(context);
-    final habitsData = Provider.of<Habits>(context).badItems;
+    final habits = Provider.of<BadHabits>(context);
+    final habitsData = Provider.of<BadHabits>(context).badItems;
     final selectedHabit = habitsData.firstWhere(
       (habit) => habit.id == habitId,
     );

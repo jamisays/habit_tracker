@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:habit_tracker/models/events/eventSource.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 // import 'package:habit_tracker/models/goodHabit.dart';
-import 'package:habit_tracker/providers/habits.dart';
 import 'package:hive/hive.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
@@ -29,14 +29,14 @@ class _MyGoodHabitListState extends State<MyGoodHabitList> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future:
-            Provider.of<Habits>(context, listen: false).fetchAndSetGoodHabits(),
+        future: Provider.of<GoodHabits>(context, listen: false)
+            .fetchAndSetGoodHabits(),
         builder: (ctx, snapshot) => snapshot.connectionState ==
                 ConnectionState.waiting
             ? Center(
                 child: CircularProgressIndicator(),
               )
-            : Consumer<Habits>(
+            : Consumer<GoodHabits>(
                 child: Center(
                   child: const Text('No habits yet added'),
                 ),

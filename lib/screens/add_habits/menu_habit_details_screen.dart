@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/dummy_data.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/bad_habits.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,8 @@ class MenuHabitDetailsScreen extends StatelessWidget {
     final habitId = ModalRoute.of(context)!.settings.arguments as String;
     final selectedHabit =
         dummyHabits.firstWhere((habit) => habit.id == habitId);
-    final habitsData = Provider.of<Habits>(context);
+    final goodHabitsData = Provider.of<GoodHabits>(context);
+    final badHabitsData = Provider.of<BadHabits>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('${selectedHabit.title}'),
@@ -31,9 +33,9 @@ class MenuHabitDetailsScreen extends StatelessWidget {
         child: Icon(Icons.add_alert),
         onPressed: () {
           selectedHabit.category == 'b'
-              ? habitsData.startAddNewBadHabit(
+              ? badHabitsData.startAddNewBadHabit(
                   context, false, selectedHabit.title)
-              : habitsData.startAddNewGoodHabit(
+              : goodHabitsData.startAddNewGoodHabit(
                   context, false, selectedHabit.title);
         },
       ),

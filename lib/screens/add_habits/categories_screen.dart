@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/dummy_data.dart';
 import 'package:habit_tracker/models/category.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/bad_habits.dart';
+import 'package:habit_tracker/providers/good_habits.dart';
 import 'package:habit_tracker/widgets/category_item.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:provider/provider.dart';
@@ -30,7 +31,7 @@ class CategoriesScreen extends StatelessWidget {
     }
 
     return ChangeNotifierProvider(
-      create: (ctx) => Habits(),
+      create: (ctx) => categoryId == 'b' ? BadHabits() : GoodHabits(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(categoryTitle!),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit_tracker/models/bad_habits/badHabit.dart';
-import 'package:habit_tracker/providers/habits.dart';
+import 'package:habit_tracker/providers/bad_habits.dart';
 import 'package:habit_tracker/screens/bad_habits/relapse_item.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +21,7 @@ class _RelapseHistoryState extends State<RelapseHistory> {
     if (_isInit) {
       final habitId = ModalRoute.of(context)!.settings.arguments as String;
 
-      habit = Provider.of<Habits>(context, listen: false)
+      habit = Provider.of<BadHabits>(context, listen: false)
           .badItems
           .firstWhere((habit) => habit.id == habitId);
       _isInit = false;
