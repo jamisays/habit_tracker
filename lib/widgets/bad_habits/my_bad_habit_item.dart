@@ -79,10 +79,13 @@ class _MyBadHabitItemState extends State<MyBadHabitItem> {
         margin: EdgeInsets.symmetric(
             horizontal: size.height * .01, vertical: size.height * .01),
         child: ListTile(
+          // tileColor: Color.fromRGBO(224, 221, 170, 1),
+          tileColor: Theme.of(context).listTileTheme.tileColor,
           leading: CircularPercentIndicator(
             radius: size.height * .043,
             // fillColor: Colors.amber,
-            progressColor: Colors.amber,
+            backgroundColor: Colors.grey.shade200,
+            progressColor: Colors.amber.shade600,
             // have to revert when validation logic is implemented
             percent: _todaySeconds > 0 ? _todaySeconds / 86400 : 0,
             center: CircleAvatar(

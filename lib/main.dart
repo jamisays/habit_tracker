@@ -73,10 +73,14 @@ class MyApp extends StatelessWidget {
             // primarySwatch: Colors.blueGrey,
             // accentColor: Colors.amber,
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Colors.brown,
-              secondary: Colors.teal.shade300,
+              primary: Color.fromRGBO(28, 101, 140, 1),
+              secondary: Color.fromRGBO(57, 138, 185, 1),
             ),
-            canvasColor: Color.fromRGBO(255, 254, 229, 1),
+            canvasColor: Color.fromRGBO(238, 237, 222, 1),
+            listTileTheme: ListTileThemeData(
+              // Color.fromRGBO(216, 210, 203, 1),
+              tileColor: Color.fromRGBO(216, 210, 203, 1),
+            ),
             fontFamily: 'Raleway',
             textTheme: ThemeData.light().textTheme.copyWith(
                   bodyText1: TextStyle(
@@ -135,6 +139,7 @@ class MyApp extends StatelessWidget {
             RelapseHistory.routeName: (ctx) => RelapseHistory(),
             // StatisticsScreen.routeName: (ctx) => StatisticsScreen(),
           },
+          debugShowCheckedModeBanner: false,
           // onGenerateRoute: (settings) {
           //   print(settings.arguments);
           //   return MaterialPageRoute(builder: (ctx) => CategoriesScreen(),);

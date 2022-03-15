@@ -226,33 +226,20 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
                                 Text(
                                   day.toString() + ' Days',
                                   style: const TextStyle(
-                                    fontSize: 40,
+                                    fontSize: 34,
                                     fontFamily: 'Helvetica',
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                Text(
-                                  hour.toString() + ' Hours',
-                                  style: const TextStyle(
-                                    fontSize: 35,
-                                    fontFamily: 'Helvetica',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  minute! + ' Minutes',
-                                  style: const TextStyle(
-                                    fontSize: 30,
-                                    fontFamily: 'Helvetica',
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  second.toString() + ' Seconds',
-                                  style: const TextStyle(
-                                    fontSize: 25,
-                                    fontFamily: 'Helvetica',
-                                    fontWeight: FontWeight.bold,
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Text(
+                                    '$hour:$minute:$second',
+                                    style: TextStyle(
+                                      fontSize: 19,
+                                      fontFamily: 'Helvetica',
+                                      // fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -266,16 +253,17 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
               },
             ),
             Container(
-              height: size.height * .3,
+              height: size.height * .365,
               width: size.width * .95,
               child: GridView(
                 children: [
                   RecordCard(100, 'Best Streak', Icons.thumb_up_alt),
                   RecordCard(80, 'Current Streak', Icons.calendar_today),
+                  RecordCard(1, 'Relapses', Icons.add_chart_outlined),
                   RecordCard(80, 'Current Streak', Icons.add_chart_outlined),
                 ],
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
+                  maxCrossAxisExtent: 180,
                   childAspectRatio: 3 / 2,
                   crossAxisSpacing: 2,
                   mainAxisSpacing: 2,
@@ -283,7 +271,7 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
               ),
             ),
             Container(
-              height: size.height * .7,
+              height: size.height * .55,
               width: size.width * .95,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -300,8 +288,9 @@ class _MyBadHabitDetailScreenState extends State<MyBadHabitDetailScreen> {
                     colorMode: ColorMode.color,
                     size: size.width * .1,
                     borderRadius: size.height * .003,
-                    defaultColor: Colors.lime.shade200,
+                    defaultColor: Colors.grey,
                     showColorTip: false,
+                    textColor: Colors.white,
                     colorsets: {
                       1: Colors.red,
                       7: Colors.green,

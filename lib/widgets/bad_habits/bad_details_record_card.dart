@@ -14,7 +14,7 @@ class RecordCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.amber.shade100,
+        color: Theme.of(context).listTileTheme.tileColor,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,7 @@ class RecordCard extends StatelessWidget {
             ),
           ),
           Text(
-            'Best Streak',
+            footarText,
             style: TextStyle(
               fontSize: size.height * .025,
               fontFamily: 'Helvetica',
